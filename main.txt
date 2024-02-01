@@ -1,0 +1,34 @@
+#host setup
+##install aws cli##
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+
+##Configure your sso with "aws configure sso" or "aws configure" for normal access key####
+
+##Install Kubectl####
+##method 1
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin
+##method 2 Install Kubectl using apt
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt update
+sudo apt install kubectl
+
+## Run kubectl version to confirm ##
+
+
+
+aws sts get-caller-identity --profile S*l*m*nM
+#using the profile set in the CLI profile name [AdministratorAccess-*******]: S*l*m*nM
+
+#aws eks update-kubeconfig --region region-code --name my-cluster
+
+aws eks update-kubeconfig --region eu-west-1 --name gh_eTranzact_sandbox_cluster --profile S*l*m*nM
+
+
+
+
